@@ -18,7 +18,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PieChart from '@material-ui/icons/PieChart';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
-import MailIcon from '@material-ui/icons/Mail';
+import HelpOutline from '@material-ui/icons/HelpOutline';
+import FormUser from '../form/FormUser';
 
 const drawerWidth = 240;
 
@@ -141,20 +142,35 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
-        <Divider />
         <List>
-          {['Dashboard', 'Cadastro'].map((text, index) => (
+          {['Dashboard'].map((text) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <PieChart /> : <PersonAdd />}</ListItemIcon>
+              <ListItemIcon>{<PieChart />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <List>
+          {['Cadastro'].map((text) => (
+            <ListItem button key={text}>
+              <ListItemIcon path="/FormUser" component={FormUser}>{<PersonAdd />}</ListItemIcon>
+              <ListItemText primary={text}/>
+            </ListItem>
+          ))}
+        </List>
+        <List>
+          {['Mercado'].map((text) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{<AttachMoney />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['Mercado'].map((text, index) => (
+        {['Info'].map((text) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AttachMoney /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<HelpOutline />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}

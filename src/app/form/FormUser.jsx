@@ -5,21 +5,16 @@ class FormUser extends PureComponent {
   render() {
     return (
       <Container>
+        <h2>Cadastro de Usuário</h2><br />
         <Form>
           <Row>
-            <Col>
+            <Col xs={12} lg={6}>
               <FormGroup>
                 <Label for="name">Nome</Label>
                 <Input type="text" name="name" id="name" placeholder="Nome completo" />
               </FormGroup>
             </Col>
-            <Col>
-              <FormGroup>
-                <Label for="email">Email</Label>
-                <Input type="text" name="email" id="email" placeholder="exemplo@email.com" />
-              </FormGroup>
-            </Col>
-            <Col>
+            <Col xs={12} lg={3}>
               <FormGroup>
                 <Label for="exampleDate">Data de Nascimento</Label>
                 <Input
@@ -30,53 +25,53 @@ class FormUser extends PureComponent {
                 />
               </FormGroup>
             </Col>
-          </Row>
-          <Row>
-            <Col>
+            <Col xs={12} lg={3}>
               <FormGroup>
                 <Label for="cpf">CPF</Label>
                 <Input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" />
               </FormGroup>
             </Col>
-            <Col>
-              <FormGroup>
-                <Label for="email">Email</Label>
-                <Input type="text" name="email" id="email" placeholder="exemplo@email.com" />
-              </FormGroup>
-            </Col>
           </Row>
           <Row>
-            <Col>
+            <Col xs={12} lg={5}>
               <FormGroup>
                 <Label for="address">Endereço</Label>
                 <Input type="text" name="address" id="address" placeholder="Rua..." />
               </FormGroup>
             </Col>
-          </Row>
-          <Row>
-            <Col md={6}>
+            <Col xs={12} lg={3}>
               <FormGroup>
                 <Label for="city">Cidade</Label>
                 <Input type="text" name="city" id="city" />
               </FormGroup>
             </Col>
-            <Col md={4}>
+            <Col xs={12} lg={2}>
               <FormGroup>
                 <Label for="state">Estado</Label>
-                <Input type="text" name="state" id="state" placeholder="UF"/>
+                <Input type="text" name="state" id="state" placeholder="UF" />
               </FormGroup>
             </Col>
-            <Col md={2}>
+            <Col xs={12} lg={2}>
               <FormGroup>
                 <Label for="zip">CEP</Label>
-                <Input type="text" name="zip" id="zip" placeholder="20000-000"/>
+                <Input type="text" name="zip" id="zip" placeholder="20000-000" />
               </FormGroup>
             </Col>
           </Row>
           <FormGroup>
-            <Col sm={{ size: 10, offset: 2 }}>
-              <Button>Salvar</Button>
-            </Col>
+            <Row>
+              <Col xs={12} lg={2}>
+                <FormGroup>
+                  <Label for="exampleCustomInput">Valor Inicial (R$)</Label>
+                  <Input type="text" placeholder="100.000,00" id="valor-inicial" name="valor-inicial" disabled   />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} lg={2}>
+                <Button>Salvar</Button>
+              </Col>
+            </Row>
           </FormGroup>
         </Form>
       </Container>
