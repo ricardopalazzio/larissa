@@ -1,12 +1,14 @@
-import React, { PureComponent } from 'react';
-import TopSide from "./components/Topside";
-//import Home from "./app/Home";
+import React from 'react';
+import ReactDOM from "react-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+//import FormUser from "./app/form/FormUser";
+import TopSide from "./app/layout/Topside";
 
-class index extends PureComponent {
-  render() {
-    return (
-      <TopSide />
+function App() {
+  return (
+    <TopSide />
     );
-  }
 }
-export default index;
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
