@@ -21,6 +21,7 @@ import AttachMoney from '@material-ui/icons/AttachMoney';
 import HelpOutline from '@material-ui/icons/HelpOutline';
 import FormUser from '../form/FormUser';
 import Dashboard from '../dashboard/Dashboard';
+import Mercado from '../mercado/Mercado';
 
 const drawerWidth = 240;
 
@@ -146,15 +147,15 @@ export default function MiniDrawer() {
         <List>
           {['Dashboard'].map((text) => (
             <ListItem button key={text}>
-              <ListItemIcon>{<PieChart />}</ListItemIcon>
+              <ListItemIcon path="/Dashboard" component={Dashboard}>{<PieChart />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <List>
-          {['Cadastro'].map((text) => (
+          {['FormUser'].map((text) => (
             <ListItem button key={text}>
-              <ListItemIcon path="/FormUser" component={FormUser}>{<PersonAdd />}</ListItemIcon>
+              <ListItemIcon>{<PersonAdd />}</ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
           ))}

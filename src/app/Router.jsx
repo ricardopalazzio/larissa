@@ -9,8 +9,8 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Layout}/>
-      <PrivateRoute path="/dashboard" component={Dashboard} />
-      <PrivateRoute path="/form-user" component={FormUser} />
+      <PrivateRoute path="/Dashboard" component={Dashboard} />
+      <PrivateRoute path="/FormUser" component={FormUser} />
     </Switch>
   </BrowserRouter>
 );
