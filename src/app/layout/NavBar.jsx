@@ -19,7 +19,7 @@ import PieChart from '@material-ui/icons/PieChart';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import HelpOutline from '@material-ui/icons/HelpOutline';
-import FormUser from '../form/FormUser';
+import Formulario from '../form/Formulario';
 import Dashboard from '../dashboard/Dashboard';
 import Mercado from '../mercado/Mercado';
 
@@ -153,7 +153,7 @@ export default function MiniDrawer() {
           ))}
         </List>
         <List>
-          {['FormUser'].map((text) => (
+          {['Formulário'].map((text) => (
             <ListItem button key={text}>
               <ListItemIcon>{<PersonAdd />}</ListItemIcon>
               <ListItemText primary={text}/>

@@ -4,16 +4,17 @@ import { Grommet, Box } from "grommet";
 import { Row } from 'reactstrap';
 import Typography from "@material-ui/core/Typography";
 
-const colorschart = ['#89e427', '#e4e026', '#550a58', '#2ae426'];
+//const colorschart = ['#89e427', '#e4e026', '#550a58', '#2ae426'];
+const colorschart = ['#abeb65', '#a565ea', '#e9e765'];
 
 class DonutChart extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      series: [],
+      series: [10, 70, 30],
       options: {
-        labels: ['Teste', 'Teste'],
+        labels: ['Dolar', 'Bitcoin', 'Euro'],
         colors: colorschart,
         legend: {
           position: 'bottom',
@@ -69,13 +70,14 @@ class DonutChart extends PureComponent {
         <div id="chart" className="grommet__container">
           <Box pad="small" elevation="medium">
             <Row>
-              <Typography variant="h6" className="title-chart">Teste </Typography>
+              <Typography variant="h6" className="title-chart">Seus Investimentos</Typography>
             </Row>
-            <Typography variant="subtitle1">Teste</Typography>
+            <Typography variant="subtitle1">Em porcentagem</Typography>
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="donut"
+              height="390"
             />
           </Box>
         </div>

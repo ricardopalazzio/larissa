@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Grid } from "@material-ui/core";
 import { Grommet, Box } from "grommet";
+import { Row, Col } from 'reactstrap';
 import Typography from "@material-ui/core/Typography";
 
 class DonutChart extends PureComponent {
@@ -14,14 +15,30 @@ class DonutChart extends PureComponent {
     return (
       <Grommet>
         <Box pad="small" elevation="medium">
-          <Typography
-            variant="h6"
-            align="center"
-            component="p"
-            style={{ color: '#550a58', fontWeight: 'bold' }}
-          >
-            Informações
-          </Typography>
+          <Row>
+            <Col lg="12">
+              <Typography
+                variant="h5"
+                align="center"
+                component="p"
+                style={{ color: '#550a58', fontWeight: 'bold' }}
+              >
+                CARTEIRAL VIRTUAL
+              </Typography>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Typography
+                variant="h5"
+                align="center"
+                component="p"
+                style={{ color: '#550a58', fontWeight: 'bold' }}
+              >
+                Informações
+              </Typography>
+            </Col>
+          </Row>
           <br />
           <Grid item align="center">
           </Grid>
@@ -55,6 +72,17 @@ class DonutChart extends PureComponent {
               component="p"
             >
               Cotação Bitcoin
+            </Typography>
+          </Grid>
+          <br />
+          <Grid item align="center">
+            <Typography variant="h6" style={{ color: '#550a58' }} >£ 4,60</Typography>
+            <Typography
+              variant="subtitle1"
+              style={{ color: '#550a58' }}
+              component="p"
+            >
+              Cotação Euro
             </Typography>
           </Grid>
         </Box>

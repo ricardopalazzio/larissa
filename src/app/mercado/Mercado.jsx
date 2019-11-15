@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Divider from '@material-ui/core/Divider';
 
-class FormUser extends PureComponent {
+class Mercado extends PureComponent {
   submitMercado = () => {
     this.props.escutadorDeSubmit(this.state);
     this.setState(this.stateInicial);
@@ -82,4 +82,4 @@ class FormUser extends PureComponent {
     );
   }
 }
-export default FormUser;
+export default Mercado;

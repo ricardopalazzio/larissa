@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Layout from './layout/NavBar';
 import PrivateRoute from './PrivateRoute';
-import FormUser from './form/FormUser';
+import Formulario from './form/Formulario';
 import Dashboard from './dashboard/index';
 
 const Router = () => (
@@ -10,7 +10,7 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={Layout}/>
       <PrivateRoute path="/Dashboard" component={Dashboard} />
-      <PrivateRoute path="/FormUser" component={FormUser} />
+      <PrivateRoute path="/Formulario" component={Formulario} />
     </Switch>
   </BrowserRouter>
 );

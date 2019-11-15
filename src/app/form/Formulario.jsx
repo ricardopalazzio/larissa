@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Divider from '@material-ui/core/Divider';
 
-class FormUser extends PureComponent {
+class Formulario extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -121,4 +121,4 @@ class FormUser extends PureComponent {
     );
   }
 }
-export default FormUser;
+export default Formulario;

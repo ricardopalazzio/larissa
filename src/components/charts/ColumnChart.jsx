@@ -4,63 +4,53 @@ import { Grommet, Box } from "grommet";
 import { Row } from 'reactstrap';
 import Typography from "@material-ui/core/Typography";
 
-const colorschart = ['#89e427', '#e4e026', '#550a58', '#2ae426'];
+const colorschart = ['#abeb65', '#a565ea', '#e9e765'];
 
 class ColumnChart extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      series: [],
       options: {
-        labels: ['Teste', 'Teste'],
         colors: colorschart,
-        legend: {
-          position: 'bottom',
-          fontSize: '14px'
-        },
-        chart: {
-          toolbar: {
-            show: true,
-            tools: {
-              download: true,
-              selection: true
-            }
-          }
-        },
         plotOptions: {
-          pie: {
-            donut: {
-              size: '55%'
-            },
-            customScale: 0.8 //tamanho do donut
-            // size: 100
-          },
-        },
-        tooltip: {
-          style: {
-            fontSize: '18px'
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            
           },
         },
         dataLabels: {
-          style: {
-            fontSize: '15px',
-            colors: ['#000']
-          },
+          enabled: false
         },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 80,
-              height: 200
-            },
-          }
-        }],
+        stroke: {
+          show: true,
+          width: 2,
+        },
+        xaxis: {
+          categories: [''],
+        },
         fill: {
           opacity: 1
         },
-      }
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return val
+            }
+          }
+        }
+      },
+      series: [{
+        name: 'Real',
+        data: [44]
+      }, {
+        name: 'Dólar',
+        data: [76]
+      }, {
+        name: 'Bitcoin',
+        data: [35]
+      }],
     }
   }
   render() {
@@ -69,14 +59,14 @@ class ColumnChart extends PureComponent {
         <div id="chart" className="grommet__container">
           <Box pad="small" elevation="medium">
             <Row>
-              <Typography variant="h6" className="title-chart">Teste</Typography>
+              <Typography variant="h6" className="title-chart">Seus Investimentos</Typography>
             </Row>
-            <Typography variant="subtitle1">Teste</Typography>
+            <Typography variant="subtitle1">Em valor de moeda</Typography>
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              height="350"
+              height="330"
             />
           </Box>
         </div>
