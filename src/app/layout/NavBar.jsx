@@ -107,7 +107,7 @@ export default function MiniDrawer() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar style={{ backgroundColor: '#89e427' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -119,7 +119,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h4" noWrap>
             Carteira Virtual
           </Typography>
         </Toolbar>

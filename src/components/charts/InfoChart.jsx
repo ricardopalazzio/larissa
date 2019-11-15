@@ -18,6 +18,7 @@ class DonutChart extends PureComponent {
             variant="h6"
             align="center"
             component="p"
+            style={{ color: '#550a58', fontWeight: 'bold' }}
           >
             Informações
           </Typography>
@@ -25,10 +26,10 @@ class DonutChart extends PureComponent {
           <Grid item align="center">
           </Grid>
           <Grid item align="center">
-            <Typography variant="h6" style={{ color: '#34a98c' }}>R$ 100.000,00</Typography>
+            <Typography variant="h6" style={{ color: '#550a58' }}>R$ 100.000,00</Typography>
             <Typography
               variant="subtitle1"
-              style={{ color: '#34a98c' }}
+              style={{ color: '#550a58' }}
               component="p"
             >
               Saldo atual
@@ -36,10 +37,10 @@ class DonutChart extends PureComponent {
           </Grid>
           <br />
           <Grid item align="center">
-            <Typography variant="h6" style={{ color: '#34a98c' }}>$ 4,12</Typography>
+            <Typography variant="h6" style={{ color: '#550a58' }}>$ 4,12</Typography>
             <Typography
               variant="subtitle1"
-              style={{ color: '#34a98c' }}
+              style={{ color: '#550a58' }}
               component="p"
             >
               Cotação Dolar
@@ -47,10 +48,10 @@ class DonutChart extends PureComponent {
           </Grid>
           <br />
           <Grid item align="center">
-            <Typography variant="h6" style={{ color: '#34a98c' }} >$ 9.000,00</Typography>
+            <Typography variant="h6" style={{ color: '#550a58' }} >$ 9.000,00</Typography>
             <Typography
               variant="subtitle1"
-              style={{ color: '#34a98c' }}
+              style={{ color: '#550a58' }}
               component="p"
             >
               Cotação Bitcoin
