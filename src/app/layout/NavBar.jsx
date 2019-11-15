@@ -20,6 +20,7 @@ import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import HelpOutline from '@material-ui/icons/HelpOutline';
 import FormUser from '../form/FormUser';
+import Dashboard from '../dashboard/Dashboard';
 
 const drawerWidth = 240;
 
@@ -176,6 +177,10 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Dashboard />
+        </main>
     </div>
   );
 }

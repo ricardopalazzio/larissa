@@ -1,0 +1,15 @@
+div[class^="StyledGrommet-sc"]{
+  height: 100% !important;
+  .grommet__container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 100%;
+  }
+  div[class^="StyledBox-sc"]{
+    height: 100% !important;
+    padding: 5px !important;
+  }
+}
+div[class^="StyledGrommet-sc"]:first-child{
+  padding: 0 !important;
+}
