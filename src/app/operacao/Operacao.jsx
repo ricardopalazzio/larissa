@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react';
-import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Divider from '@material-ui/core/Divider';
 
-class Mercado extends PureComponent {
-  submitMercado = () => {
+class Operacao extends PureComponent {
+  submitOperacao = () => {
     this.props.escutadorDeSubmit(this.state);
     this.setState(this.stateInicial);
 
   }
   render() {
     return (
-      <div>
-        <h2>Mercado</h2><br />
+      <Container>
+        <h2>Operação</h2><br />
         <Form>
           <Row>
             <Col xs={12} lg={2}>
@@ -31,9 +31,10 @@ class Mercado extends PureComponent {
             <Col xs={12} lg={2}>
               <Label for="exampleSelect">Cambio</Label>
               <Input type="select" name="select" id="exampleSelect">
-                <option>Selecione...</option>
+              <option>Selecione...</option>
+                <option>Bitcoin</option>
                 <option>Dólar</option>
-                <option>Bitcoin</option>W
+                <option>Euro</option>
               </Input>
             </Col>
             <Col xs={12} lg={2}>
@@ -54,8 +55,9 @@ class Mercado extends PureComponent {
               <Label for="exampleSelect">Cambio</Label>
               <Input type="select" name="select" id="exampleSelect">
                 <option>Selecione...</option>
+                <option>Bitcoin</option>
                 <option>Dólar</option>
-                <option>Bitcoin</option>W
+                <option>Euro</option>
               </Input>
             </Col>
             <Col xs={12} lg={2}>
@@ -73,13 +75,13 @@ class Mercado extends PureComponent {
                 <Button color="danger">Cancelar</Button>
               </Col>
               <Col xs={12} lg={1}>
-                <Button color="success" onClick={this.submitMercado}>Salvar</Button>
+                <Button color="success" onClick={this.submitOperacao}>Salvar</Button>
               </Col>
             </Row>
           </FormGroup>
         </Form>
-      </div>
+      </Container>
     );
   }
 }
-export default Mercado;
+export default Operacao;

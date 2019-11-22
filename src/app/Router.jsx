@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Layout from './layout/NavBar';
 import PrivateRoute from './PrivateRoute';
-import Formulario from './form/Formulario';
+import Formulario from './formulario/Formulario';
 import Dashboard from './dashboard/index';
 
 const Router = () => (

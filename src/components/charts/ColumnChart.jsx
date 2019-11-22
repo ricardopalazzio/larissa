@@ -42,13 +42,13 @@ class ColumnChart extends PureComponent {
         }
       },
       series: [{
-        name: 'Real',
+        name: 'Dólar',
         data: [44]
       }, {
-        name: 'Dólar',
+        name: 'Bitcoin',
         data: [76]
       }, {
-        name: 'Bitcoin',
+        name: 'Euro',
         data: [35]
       }],
     }
@@ -66,7 +66,7 @@ class ColumnChart extends PureComponent {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              height="330"
+              height="325"
             />
           </Box>
         </div>

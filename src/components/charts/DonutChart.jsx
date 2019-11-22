@@ -77,7 +77,7 @@ class DonutChart extends PureComponent {
               options={this.state.options}
               series={this.state.series}
               type="donut"
-              height="390"
+              height="386"
             />
           </Box>
         </div>

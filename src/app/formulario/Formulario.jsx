@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 
 class Formulario extends PureComponent {
@@ -29,7 +30,7 @@ class Formulario extends PureComponent {
   render() {
     const { nome, usuario, senha, data_nasc, cpf, end, cidade, estado, cep, valor } = this.state;
     return (
-      <div>
+      <Container>
         <h2>Cadastro</h2><br />
         <Form>
           <Row>
@@ -117,7 +118,7 @@ class Formulario extends PureComponent {
             </Row>
           </FormGroup>
         </Form>
-      </div>
+      </Container>
     );
   }
 }

@@ -12,6 +12,8 @@ class LineChart extends PureComponent {
 
     this.state = {
       options: {
+        labels: ['Dolar', 'Bitcoin', 'Euro'],
+        colors: colorschart,
         chart: {
           shadow: {
             enabled: true,
@@ -25,7 +27,6 @@ class LineChart extends PureComponent {
             show: false
           }
         },
-        colors: colorschart,
         dataLabels: {
           enabled: true,
         },
@@ -41,9 +42,9 @@ class LineChart extends PureComponent {
           size: 6
         },
         xaxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr'],
+          categories: ['Jan', 'Fev', 'Mar', 'Abr'],
           title: {
-            text: 'Month'
+            text: 'Meses'
           }
         },
         yaxis: {
@@ -90,7 +91,7 @@ class LineChart extends PureComponent {
               options={this.state.options}
               series={this.state.series}
               type="line"
-              height="330"
+              height="325"
             />
           </Box>
         </div>

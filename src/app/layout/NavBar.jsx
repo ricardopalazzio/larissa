@@ -4,10 +4,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -18,10 +16,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PieChart from '@material-ui/icons/PieChart';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
-import HelpOutline from '@material-ui/icons/HelpOutline';
-import Formulario from '../form/Formulario';
-import Dashboard from '../dashboard/Dashboard';
-import Mercado from '../mercado/Mercado';
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -108,7 +103,7 @@ export default function MiniDrawer() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style={{ backgroundColor: '#89e427' }}>
+        <Toolbar style={{ backgroundColor: '#5f83e3' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -120,8 +115,8 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap>
-            Carteira Virtual
+          <Typography variant="h4">
+            Câmbio
           </Typography>
         </Toolbar>
       </AppBar>
@@ -144,44 +139,31 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
-        <List>
-          {['Dashboard'].map((text) => (
-            <ListItem button key={text}>
-              <ListItemIcon path="/Dashboard" component={Dashboard}>{<PieChart />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Formulário'].map((text) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{<PersonAdd />}</ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Mercado'].map((text) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{<AttachMoney />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-        {['Info'].map((text) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{<HelpOutline />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <ListItem button>
+          <NavLink to="/">
+            <ListItemIcon>
+              <PieChart />
+            </ListItemIcon>
+          </NavLink>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button>
+          <NavLink to="/formulario">
+            <ListItemIcon>
+              <PersonAdd />
+            </ListItemIcon>
+          </NavLink>
+          <ListItemText primary="Formulario" />
+        </ListItem>
+        <ListItem button>
+          <NavLink to="/operacao">
+            <ListItemIcon>
+              <AttachMoney />
+            </ListItemIcon>
+          </NavLink>
+          <ListItemText primary="Operacao" />
+        </ListItem>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Dashboard />
-        </main>
     </div>
   );
 }

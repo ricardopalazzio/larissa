@@ -30,7 +30,7 @@ class DonutChart extends PureComponent {
           <Row>
             <Col>
               <Typography
-                variant="h5"
+                variant="h6"
                 align="center"
                 component="p"
                 style={{ color: '#550a58', fontWeight: 'bold' }}
@@ -49,7 +49,7 @@ class DonutChart extends PureComponent {
               style={{ color: '#550a58' }}
               component="p"
             >
-              Saldo atual
+              Seu saldo atual
             </Typography>
           </Grid>
           <br />
