@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
-import Formulario from "./formulario/Formulario";
+import Cadastro from "./formulario/Cadastro";
 import Operacao from "./operacao/Operacao";
 import NavBar from "./layout/NavBar";
 import '../scss/app.scss';
@@ -14,7 +14,7 @@ class App extends PureComponent {
           <NavBar />
           <Switch>
             <Route exact path="/" component={Dashboard} />
-            <Route path="/formulario" component={Formulario} />
+            <Route path="/cadastro" component={Cadastro} />
             <Route path="/operacao" component={Operacao} />
           </Switch>
         </div>

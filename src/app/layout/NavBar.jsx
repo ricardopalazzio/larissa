@@ -148,12 +148,12 @@ export default function MiniDrawer() {
           <ListItemText primary="Dashboard" />
         </ListItem>
         <ListItem button>
-          <NavLink to="/formulario">
+          <NavLink to="/cadastro">
             <ListItemIcon>
               <PersonAdd />
             </ListItemIcon>
           </NavLink>
-          <ListItemText primary="Formulario" />
+          <ListItemText primary="Cadastro" />
         </ListItem>
         <ListItem button>
           <NavLink to="/operacao">
