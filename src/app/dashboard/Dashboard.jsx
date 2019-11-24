@@ -8,7 +8,7 @@ import LineChart from "../../components/charts/LineChart";
 class Dashboard extends PureComponent {
   render() {
     return (
-      <Container>
+      <Container className="layout__container">
         <Row>
           <Col xs={12} sm={12} md={3} lg={3}>
             <InfoChart />

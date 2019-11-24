@@ -1,5 +1,6 @@
-@import './grommet';
-@import './charts';
+@import './dashboard/grommet';
+@import './dashboard/charts';
+@import './layout/layout';
 
 button{
   outline: none !important;

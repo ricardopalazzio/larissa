@@ -10,7 +10,7 @@ class Operacao extends PureComponent {
   }
   render() {
     return (
-      <Container>
+      <Container className="layout__container">
         <h2>Operação</h2><br />
         <Form>
           <Row>

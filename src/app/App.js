@@ -4,6 +4,7 @@ import Dashboard from "./dashboard/Dashboard";
 import Formulario from "./formulario/Formulario";
 import Operacao from "./operacao/Operacao";
 import NavBar from "./layout/NavBar";
+import '../scss/app.scss';
 
 class App extends PureComponent {
   render() {

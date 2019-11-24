@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+<<<<<<< HEAD
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Divider from '@material-ui/core/Divider';
 
@@ -6,6 +7,13 @@ class Formulario extends PureComponent {
   constructor(props) {
     super(props);
 
+=======
+import { Field } from 'redux-form';
+
+class Cadastro extends PureComponent {
+  constructor(props) {
+    super(props);
+>>>>>>> adjustment container and padding topbar
     this.state = {
       nome: '',
       usuario: '',
@@ -18,6 +26,7 @@ class Formulario extends PureComponent {
       cep: '',
       valor: ''
     }
+<<<<<<< HEAD
 
     this.state = this.state;
   }
@@ -122,3 +131,32 @@ class Formulario extends PureComponent {
   }
 }
 export default Formulario;
+=======
+  }
+  render() {
+    const { handleSubmit, pristine, reset, submitting } = this.props;
+    return (
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>First Name</label>
+          <div>
+            <Field
+              name="nome"
+              component="input"
+              type="text"
+              placeholder="Nome"
+            />
+          </div>
+        </div>
+        <div>
+          <button type="submit" disabled={pristine || submitting}>Submit</button>
+          <button type="button" disabled={pristine || submitting} onClick={reset}>
+            Clear Values
+        </button>
+        </div>
+      </form>
+    );
+  }
+}
+export default Cadastro;
+>>>>>>> adjustment container and padding topbar

@@ -30,7 +30,7 @@ class Formulario extends PureComponent {
   render() {
     const { nome, usuario, senha, data_nasc, cpf, end, cidade, estado, cep, valor } = this.state;
     return (
-      <Container>
+      <Container className="layout__container">
         <h2>Cadastro</h2><br />
         <Form>
           <Row>
