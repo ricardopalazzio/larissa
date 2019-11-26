@@ -103,7 +103,7 @@ export default function MiniDrawer() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style={{ backgroundColor: '#5f83e3' }}>
+        <Toolbar style={{ backgroundColor: '#14aa4b' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"

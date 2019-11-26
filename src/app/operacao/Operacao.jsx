@@ -1,87 +1,159 @@
 import React, { PureComponent } from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { reduxForm } from 'redux-form';
+import { Container, Row, Col, Button, Form } from 'reactstrap';
+import { TextField } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 
-class Operacao extends PureComponent {
-  submitOperacao = () => {
-    this.props.escutadorDeSubmit(this.state);
-    this.setState(this.stateInicial);
-
+class Cadastro extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nome: '',
+      usuario: '',
+      senha: '',
+      data_nasc: '',
+      cpf: '',
+      end: '',
+      cidade: '',
+      estado: '',
+      cep: '',
+      valor: ''
+    }
   }
   render() {
+    const { handleSubmit, reset } = this.props;
     return (
       <Container className="layout__container">
-        <h2>Operação</h2><br />
-        <Form>
+        <h2>Cadastro</h2><br />
+        <Form onSubmit={handleSubmit}>
           <Row>
             <Col xs={12} lg={2}>
-              <FormGroup>
-                <Label for="exampleCustomInput">Seu Saldo</Label>
-                <Input type="text" placeholder="100.000,00" id="valor-inicial" name="valor-inicial" disabled />
-              </FormGroup>
+            <legend>Seu saldo</legend>
+              <TextField
+                label="Valor em real"
+                defaultValue="R$ 100.000,00"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+                disabled
+                variant="filled"
+              />
+            </Col>
+          </Row>
+          <br />
+          <Divider />
+          <br />
+          <legend>Câmbio Dólar</legend>
+          <Row>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor de compra"
+                defaultValue="R$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor convertido"
+                defaultValue="$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={2}>
+              <Button type="submit" outline color="success" >Operar</Button>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} lg={2}>
-              <FormGroup>
-                <Label for="exampleCustomInput">Valor aplicado</Label>
-                <Input type="text" placeholder="100,00" id="valor-inicial" name="valor-inicial" />
-              </FormGroup>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor de venda"
+                defaultValue="$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
             </Col>
-            <Col xs={12} lg={2}>
-              <Label for="exampleSelect">Cambio</Label>
-              <Input type="select" name="select" id="exampleSelect">
-              <option>Selecione...</option>
-                <option>Bitcoin</option>
-                <option>Dólar</option>
-                <option>Euro</option>
-              </Input>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor convertido"
+                defaultValue="R$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
             </Col>
-            <Col xs={12} lg={2}>
-              <FormGroup>
-                <Label for="exampleCustomInput">Valor comprado</Label>
-                <Input type="text" placeholder="100,00" id="valor-inicial" name="valor-inicial" />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} lg={2}>
-              <FormGroup>
-                <Label for="exampleCustomInput">Valor de venda</Label>
-                <Input type="text" placeholder="100,00" id="valor-inicial" name="valor-inicial" />
-              </FormGroup>
-            </Col>
-            <Col xs={12} lg={2}>
-              <Label for="exampleSelect">Cambio</Label>
-              <Input type="select" name="select" id="exampleSelect">
-                <option>Selecione...</option>
-                <option>Bitcoin</option>
-                <option>Dólar</option>
-                <option>Euro</option>
-              </Input>
-            </Col>
-            <Col xs={12} lg={2}>
-              <FormGroup>
-                <Label for="exampleCustomInput">Ganho</Label>
-                <Input type="text" placeholder="100,00" id="valor-inicial" name="valor-inicial" />
-              </FormGroup>
-            </Col>
-          </Row>
-          <FormGroup>
-            <Divider />
             <br />
-            <Row>
-              <Col xs={12} lg={1}>
-                <Button color="danger">Cancelar</Button>
-              </Col>
-              <Col xs={12} lg={1}>
-                <Button color="success" onClick={this.submitOperacao}>Salvar</Button>
-              </Col>
-            </Row>
-          </FormGroup>
+            <Col xs={12} lg={2}>
+              <Button type="submit" outline color="success">Operar</Button>
+            </Col>
+          </Row>
+          <br />
+          <Divider />
+          <br />
+          <legend>Câmbio Bitcoin</legend>
+          <Row>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor de compra"
+                defaultValue="$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor convertido"
+                defaultValue="₿"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={2}>
+              <Button type="submit" outline color="success">Operar</Button>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor de venda"
+                defaultValue="₿"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={5}>
+              <TextField
+                label="Valor convertido"
+                defaultValue="$"
+                id="filled-adornment-amount"
+                fullWidth
+                margin="normal"
+              />
+            </Col>
+            <Col xs={12} lg={2}>
+              <Button type="submit" outline color="success">Operar</Button>
+            </Col>
+          </Row>
+          <br />
+          <Divider />
+          <br />
+          <Row>
+            <Col xs={12} lg={2}>
+              <Button onClick={reset} outline color="danger">Cancelar</Button>
+            </Col>
+          </Row>
         </Form>
       </Container>
     );
   }
 }
-export default Operacao;
+export default reduxForm({
+  form: 'cadastro',
+})(Cadastro);
