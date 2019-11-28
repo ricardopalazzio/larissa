@@ -8,15 +8,16 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import Menu from '@material-ui/core/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PieChart from '@material-ui/icons/PieChart';
+import EuroSymbol from '@material-ui/icons/EuroSymbol';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
@@ -98,17 +99,17 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const [auth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  // const [auth] = React.useState(true);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
 
 
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleMenu = event => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -133,7 +134,7 @@ export default function MiniDrawer() {
           <Typography variant="h4">
             Câmbio
           </Typography>
-          {auth && (
+          {/* {auth && (
             <div className="layout__logout">
               <IconButton
                 aria-label="account of current user"
@@ -162,7 +163,7 @@ export default function MiniDrawer() {
                 <MenuItem onClick={handleClose}>Sair</MenuItem>
               </Menu>
             </div>
-          )}
+          )} */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -201,12 +202,20 @@ export default function MiniDrawer() {
           <ListItemText primary="Cadastro" />
         </ListItem>
         <ListItem button>
-          <NavLink to="/operacao">
+          <NavLink to="/operacao-bitcoin">
             <ListItemIcon>
               <AttachMoney />
             </ListItemIcon>
           </NavLink>
-          <ListItemText primary="Operacao" />
+          <ListItemText primary="Operação Bitcoin" />
+        </ListItem>
+        <ListItem button>
+          <NavLink to="/operacao-brita">
+            <ListItemIcon>
+              <EuroSymbol />
+            </ListItemIcon>
+          </NavLink>
+          <ListItemText primary="Operação Brita" />
         </ListItem>
         <ListItem button>
           <Divider />
