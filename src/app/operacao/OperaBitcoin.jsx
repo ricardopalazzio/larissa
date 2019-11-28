@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { Container, Row, Col, Button, Form } from 'reactstrap';
 import { TextField } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-//import $ from 'jquery';
+import $ from 'jquery';
 
 // userEffect(() => {
 //   fetchItems();
@@ -24,23 +24,27 @@ class OperaBitcoin extends PureComponent {
     super(props);
     this.state = {
       data: '',
-      saldo: '',
-      dolar: '',
-      bitcoin: '',
+      buy: '',
+      sell: '',
     }
   }
-  // componentWillMount() {
-  //   console.log("willMount");
-  //   $.ajax({
-  //     url: "https://www.mercadobitcoin.net/api/BTC/ticker/",
-  //     dataType: 'json',
-  //     success: function (e) {
-  //       console.log("chegou a resposta");
-  //       this.setState({ data: e });
-  //     }.bind(this)
-  //   }
-  //   );
-  // }
+  componentWillMount() {
+    console.log("willMount");
+    $.ajax({
+      url: "https://www.mercadobitcoin.net/api/BTC/ticker/",
+      dataType: 'json',
+        type:'get',
+        data: JSON.stringify({
+          buy:this.state.buy, 
+          sell:this.state.sell
+        }),
+      success: function (e) {
+        console.log("chegou a resposta");
+        this.setState({ data: e });
+      }.bind(this)
+    }
+    );
+  }
   render() {
     const { handleSubmit, reset } = this.props;
     //const { data } = this.state
@@ -80,7 +84,7 @@ class OperaBitcoin extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor convertido"
-                defaultValue="₿"
+                defaultValue={this.state.buy}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
@@ -94,7 +98,7 @@ class OperaBitcoin extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor de venda"
-                defaultValue="₿"
+                defaultValue={this.state.sell}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
