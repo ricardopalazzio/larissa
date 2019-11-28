@@ -66,7 +66,7 @@ class ColumnChart extends PureComponent {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              height="325"
+              height="300"
             />
           </Box>
         </div>

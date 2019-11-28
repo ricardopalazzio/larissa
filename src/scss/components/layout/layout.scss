@@ -23,10 +23,27 @@ $dash-tertiary: #9514aa;
   right: 0;
   animation: 0.35s alternate 0.7s forwards delayedShow;
   position: relative;
-  padding-top: 80px;
+  padding-top: 90px;
   padding-left: 60px;
-  padding-right: 100px;
   .layout__form {
     color: $primary;
   }
 }
+.layout__logout{
+  padding-left: 1250px;
+}
+.layout__login{
+  padding-left: 45%;
+}
+.button__login{
+  padding-left: 40%;
+  padding-top: 20px;
+}
+// .layout__login{
+//   margin: 0;
+//   position: absolute;
+//   left: 50%;
+//   padding-bottom: 10px;
+//   margin-right: -50%;
+//   transform: translate(-50%, -50%);
+// }

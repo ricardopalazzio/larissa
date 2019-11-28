@@ -8,14 +8,19 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PieChart from '@material-ui/icons/PieChart';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import AttachMoney from '@material-ui/icons/AttachMoney';
+import Divider from '@material-ui/core/Divider';
 import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -93,7 +98,17 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const [auth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
+
+  const handleMenu = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -118,6 +133,36 @@ export default function MiniDrawer() {
           <Typography variant="h4">
             Câmbio
           </Typography>
+          {auth && (
+            <div className="layout__logout">
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Sair</MenuItem>
+              </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -162,6 +207,15 @@ export default function MiniDrawer() {
             </ListItemIcon>
           </NavLink>
           <ListItemText primary="Operacao" />
+        </ListItem>
+        <ListItem button>
+          <Divider />
+          <NavLink to="/logout">
+            <ListItemIcon>
+              <ExitToApp />
+            </ListItemIcon>
+          </NavLink>
+          <ListItemText primary="Sair" />
         </ListItem>
       </Drawer>
     </div>

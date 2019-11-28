@@ -91,7 +91,7 @@ class LineChart extends PureComponent {
               options={this.state.options}
               series={this.state.series}
               type="line"
-              height="325"
+              height="300"
             />
           </Box>
         </div>

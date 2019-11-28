@@ -8,10 +8,11 @@ class DonutChart extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      series: [],
+      saldo: 100,
     };
   }
   render() {
+   // const { saldo } = this.state;
     return (
       <Grommet>
         <Box pad="small" elevation="medium">
@@ -43,7 +44,7 @@ class DonutChart extends PureComponent {
           <Grid item align="center">
           </Grid>
           <Grid item align="center">
-            <Typography variant="h6" style={{ color: '#550a58' }}>R$ 100.000,00</Typography>
+            <Typography variant="h6" style={{ color: '#550a58' }}>R$ {this.state.saldo}</Typography>
             <Typography
               variant="subtitle1"
               style={{ color: '#550a58' }}
@@ -72,17 +73,6 @@ class DonutChart extends PureComponent {
               component="p"
             >
               Cotação Bitcoin
-            </Typography>
-          </Grid>
-          <br />
-          <Grid item align="center">
-            <Typography variant="h6" style={{ color: '#550a58' }} >£ 4,60</Typography>
-            <Typography
-              variant="subtitle1"
-              style={{ color: '#550a58' }}
-              component="p"
-            >
-              Cotação Euro
             </Typography>
           </Grid>
         </Box>

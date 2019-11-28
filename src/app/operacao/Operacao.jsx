@@ -4,27 +4,28 @@ import { Container, Row, Col, Button, Form } from 'reactstrap';
 import { TextField } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 
-class Cadastro extends PureComponent {
+// userEffect(() => {
+//   fetchItems();
+// }, []);
+// const [items, setItens] = useState([]);
+// const fetchItems = async () => {
+//   const data = await fetch('https://www.mercadobitcoin.net/api/BTC/ticker/');
+// }
+class Operacao extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      nome: '',
-      usuario: '',
-      senha: '',
-      data_nasc: '',
-      cpf: '',
-      end: '',
-      cidade: '',
-      estado: '',
-      cep: '',
-      valor: ''
+      saldo: '',
+      dolar:'',
+      bitcoin:'',
     }
   }
   render() {
     const { handleSubmit, reset } = this.props;
+    //onst { saldo, dolar, bitcoin } = this.state;
     return (
       <Container className="layout__container">
-        <h2>Cadastro</h2><br />
+        <h2>Operações</h2><br />
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col xs={12} lg={2}>
@@ -48,7 +49,7 @@ class Cadastro extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor de compra"
-                defaultValue="R$"
+                defaultValue={this.state.saldo}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
@@ -57,7 +58,7 @@ class Cadastro extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor convertido"
-                defaultValue="$"
+                defaultValue={this.state.dolar}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
@@ -155,5 +156,5 @@ class Cadastro extends PureComponent {
   }
 }
 export default reduxForm({
-  form: 'cadastro',
-})(Cadastro);
+  form: 'operacao',
+})(Operacao);
