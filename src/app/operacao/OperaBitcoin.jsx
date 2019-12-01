@@ -3,7 +3,6 @@ import { reduxForm } from 'redux-form';
 import { Container, Row, Col, Button, Form } from 'reactstrap';
 import { TextField } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import $ from 'jquery';
 
 // userEffect(() => {
 //   fetchItems();
@@ -24,27 +23,83 @@ class OperaBitcoin extends PureComponent {
     super(props);
     this.state = {
       data: '',
-      buy: '',
-      sell: '',
+      usuario: {},
+      compra: 0,
+      venda: 0,
+      compraConvertido: 0,
+      vendaConvertido: 0,
+      compraCotacao: 0,
+      vendaCotacao: 0,
     }
   }
+
+  // consulta o valor de compra e venda
   componentWillMount() {
     console.log("willMount");
-    $.ajax({
-      url: "https://www.mercadobitcoin.net/api/BTC/ticker/",
-      dataType: 'json',
-        type:'get',
-        data: JSON.stringify({
-          buy:this.state.buy, 
-          sell:this.state.sell
-        }),
-      success: function (e) {
-        console.log("chegou a resposta");
-        this.setState({ data: e });
-      }.bind(this)
-    }
-    );
+
+    // aqui voce tem que fazer o nome chegar pelo login ....
+    this.setState( {usuario: JSON.parse(localStorage.getItem('luana'))} );
+
+
+    // pega o valor da cotacao e coloca no state.
+    fetch('https://www.mercadobitcoin.net/api/BTC/ticker/', {mode: "cors"})
+        .then(data => data.json())
+        .then(element => {
+          this.setState( {compraCotacao: element.ticker.buy} );
+          this.setState( {vendaCotacao: element.ticker.sell} );
+          console.log(this.state);
+        });
   }
+
+
+  operaCompra() {
+
+    // recupera as trasacoes do usuario e calcula o novo saldo.
+    const usuario  = this.state.usuario;
+
+
+    // se o valor e maior que o saldo do usuario nao deixa;
+    if(this.state.compra > usuario.valor){
+      alert("saldo insuficiente");
+      return;
+    }
+
+    console.log(usuario);
+
+    // pega o ultimo elemento da lista do usuario e faz  o calculo de saldo  total em reais e de bitcoins;
+    let ultimaTrasacaoBTC  =  usuario.btc[usuario.btc.length -1];
+
+    // cria  o novo registro
+    let novaTrasacao = {saldoAnterior:  ultimaTrasacaoBTC.saldoAtual
+      , valorOperacao: this.state.compraConvertido,
+      saldoAtual: this.state.compraConvertido + ultimaTrasacaoBTC.saldoAtual}
+
+    //manipula o valor do usuario;
+    usuario.valor  = usuario.valor  - this.state.compra;
+
+    usuario.btc.push(novaTrasacao);
+
+    localStorage.setItem(usuario.nome , JSON.stringify(usuario));
+
+    alert("transacao realizada!")
+
+  }
+
+  calculaValorCompra (event) {
+    let value  = event.target.value;
+    this.setState({compra : value});
+
+    let valorCompraConvertido  = 0 ;
+
+     valorCompraConvertido  =  (value / this.state.compraCotacao);
+
+     this.setState({compraConvertido: valorCompraConvertido})
+
+     console.log(this.state);
+
+  }
+
+
   render() {
     const { handleSubmit, reset } = this.props;
     //const { data } = this.state
@@ -75,8 +130,10 @@ class OperaBitcoin extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor de compra"
-                defaultValue="$"
-                id="filled-adornment-amount"
+                defaultValue={this.state.compra}
+                onChange={this.calculaValorCompra.bind(this)}
+                type="text"
+                id="iCompra"
                 fullWidth
                 margin="normal"
               />
@@ -84,21 +141,22 @@ class OperaBitcoin extends PureComponent {
             <Col xs={12} lg={5}>
               <TextField
                 label="Valor convertido"
-                defaultValue={this.state.buy}
+                defaultValue={this.state.compraConvertido}
+                value={this.state.compraConvertido}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
               />
             </Col>
             <Col xs={12} lg={2}>
-              <Button type="submit" outline color="success">Operar</Button>
+              <Button type="submit" outline color="success" onClick={this.operaCompra.bind(this)}>Operar</Button>
             </Col>
           </Row>
           <Row>
             <Col xs={12} lg={5}>
               <TextField
+                name="iVenda"
                 label="Valor de venda"
-                defaultValue={this.state.sell}
                 id="filled-adornment-amount"
                 fullWidth
                 margin="normal"
